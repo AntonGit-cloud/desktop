@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AuthController /*implements Initializable*/ {
+public class AuthController implements Initializable {
 
     @FXML
     private TextField loginField;
@@ -36,10 +36,9 @@ public class AuthController /*implements Initializable*/ {
     private static double yOffset = 0;
 
 
-
     @FXML
     public void onHelloButtonClick() throws IOException {
-       // welcomeText.setText("Welcome to JavaFX Application!");
+        // welcomeText.setText("Welcome to JavaFX Application!");
 
         CloseableHttpClient client = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost("http://localhost:8080/api/auth/login");
@@ -67,7 +66,7 @@ public class AuthController /*implements Initializable*/ {
 
 
     @FXML
-    protected void movingWindow(){
+    protected void movingWindow() {
        /* FXMLLoader loader = new FXMLLoader(getClass().getResource("MyGui.fxml"));
         Parent root = (Parent)loader.load();
         AuthController controller = (AuthController)loader.getController();
@@ -89,8 +88,8 @@ public class AuthController /*implements Initializable*/ {
     }
 
 
-   /* @Override
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-    }*/
+    }
 }

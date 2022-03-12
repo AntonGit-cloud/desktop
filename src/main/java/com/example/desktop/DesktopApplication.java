@@ -1,21 +1,34 @@
 package com.example.desktop;
 
+import com.example.desktop.controllers.MainController;
+import com.example.desktop.controllers.helper.ResizeHelper;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
 public class DesktopApplication extends Application {
 
+    private Scene scene;
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(DesktopApplication.class.getResource("views/login-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 400);
-        stage.setTitle("Hello!");
+
+        FXMLLoader loader = new FXMLLoader(MFXApplicationResourcesLoader.loadURL("views/main-view.fxml"));
+        loader.setControllerFactory(c -> new MainController(stage));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setResizable(true);
         stage.setScene(scene);
-        //stage.setMaximized(true);
+        stage.setTitle("Main platform education");
+        ResizeHelper.addResizeListener(stage);
         stage.show();
     }
 

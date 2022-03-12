@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.font.MFXFontIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="rootPane" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.desktop.controllers.MainController">
+    <HBox fx:id="windowHeader" alignment="CENTER_RIGHT" layoutY="6.0" prefHeight="40.0" prefWidth="1281.0" spacing="10.0" styleClass="window-header" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+            <children>
+                <Label text="Label" textFill="WHITE" HBox.hgrow="ALWAYS" />
+            </children>
+        </HBox>
+        <MFXFontIcon fx:id="alwaysOnTopIcon" description="mfx-circle" size="20.0" styleClass="always-on-top-icon" />
+        <MFXFontIcon fx:id="minimizeIcon" description="mfx-minus-circle" size="20.0" styleClass="minimize-icon" />
+        <MFXFontIcon fx:id="closeIcon" description="mfx-x-circle" size="20.0" styleClass="close-icon" />
+        <padding>
+            <Insets right="10.0" />
+        </padding>
+    </HBox>
+    <StackPane fx:id="contentPane" layoutX="88.0" layoutY="41.0" prefHeight="358.0" prefWidth="501.0" style="-fx-background-color: #74747474;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
+    <VBox alignment="TOP_CENTER" prefWidth="40.0" styleClass="menubar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="40.0">
+        <MFXFontIcon fx:id="userMani" description="mfx-sliders" size="25.0" stroke="WHITE">
+            <VBox.margin>
+                <Insets bottom="10.0" />
+            </VBox.margin>
+        </MFXFontIcon>
+        <MFXFontIcon description="mfx-home" size="25.0" stroke="WHITE">
+            <VBox.margin>
+                <Insets bottom="10.0" />
+            </VBox.margin>
+        </MFXFontIcon>
+        <MFXFontIcon description="mfx-users" size="25.0" stroke="WHITE">
+            <VBox.margin>
+                <Insets bottom="10.0" />
+            </VBox.margin>
+        </MFXFontIcon>
+        <MFXFontIcon description="mfx-video" size="25.0" stroke="WHITE" />
+        <padding>
+            <Insets top="15.0" />
+        </padding>
+    </VBox>
+    <StackPane id="navBar" fx:id="navBar" layoutX="101.0" layoutY="41.0" maxWidth="-Infinity" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: white;" translateX="-240.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0" StackPane.alignment="CENTER_LEFT">
+        <StackPane.margin>
+            <Insets bottom="15.0" left="15.0" top="15.0" />
+        </StackPane.margin>
+        <children>
+            <AnchorPane style="-fx-background-color: #ffffffff;">
+                <children>
+                    <Label layoutX="44.0" layoutY="60.0" text="dsadsa" textFill="#d3cccc" />
+                </children>
+            </AnchorPane>
+        </children>
+    </StackPane>
+</AnchorPane>
