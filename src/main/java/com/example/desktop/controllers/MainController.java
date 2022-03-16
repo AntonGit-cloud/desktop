@@ -146,7 +146,7 @@ public class MainController implements Initializable {
                 .getAnimation();
 
         closeNav = (ParallelTransition) AnimationUtils.ParallelBuilder.build()
-                .hide(70, navBar)
+                .hide(500, navBar)
                 .add(new KeyFrame(Duration.millis(300), new KeyValue(navBar.translateXProperty(), -240)))
                 //.add(new KeyFrame(Duration.millis(200), new KeyValue(opNavButton.rotateProperty(), 0)))
                 .setOnFinished(event -> isNavShown = false)
