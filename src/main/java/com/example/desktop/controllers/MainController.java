@@ -139,14 +139,14 @@ public class MainController implements Initializable {
 
     private void initAnimations() {
         openNav = (ParallelTransition) AnimationUtils.ParallelBuilder.build()
-                .show(50, navBar)
+                .show(100, navBar)
                 .add(new KeyFrame(Duration.millis(300), new KeyValue(navBar.translateXProperty(), 2)))
                 //.add(new KeyFrame(Duration.millis(200), new KeyValue(opNavButton.rotateProperty(), -180)))
                 .setOnFinished(event -> isNavShown = true)
                 .getAnimation();
 
         closeNav = (ParallelTransition) AnimationUtils.ParallelBuilder.build()
-                .hide(50, navBar)
+                .hide(70, navBar)
                 .add(new KeyFrame(Duration.millis(300), new KeyValue(navBar.translateXProperty(), -240)))
                 //.add(new KeyFrame(Duration.millis(200), new KeyValue(opNavButton.rotateProperty(), 0)))
                 .setOnFinished(event -> isNavShown = false)

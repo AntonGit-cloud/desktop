@@ -1,59 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
-<?import io.github.palexdev.materialfx.controls.MFXTextField?>
-<?import io.github.palexdev.materialfx.font.MFXFontIcon?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import io.github.palexdev.materialfx.font.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.desktop.controllers.AuthController">
-   <children>
-      <HBox alignment="BOTTOM_LEFT" nodeOrientation="RIGHT_TO_LEFT" onMousePressed="#movingWindow" prefHeight="24.0" prefWidth="600.0" style="-fx-background-color: #8D00FC; -fx-border-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <MFXFontIcon description="mfx-x" size="25.0" wrappingWidth="10.0">
-               <HBox.margin>
-                  <Insets left="15.0" right="20.0" />
-               </HBox.margin>
-            </MFXFontIcon>
-            <MFXFontIcon description="mfx-expand" layoutX="10.0" layoutY="31.0" size="19.0" wrappingWidth="12.0">
-               <HBox.margin>
-                  <Insets right="15.0" />
-               </HBox.margin>
-            </MFXFontIcon>
-            <MFXFontIcon description="mfx-minus" layoutX="20.0" layoutY="31.0" size="25.0" tabSize="12" wrappingWidth="10.0" />
-            <HBox fx:id="windowsBar" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="372.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0">
-         <children>
-            <MFXTextField fx:id="loginField" alignment="TOP_LEFT" floatMode="BORDER" floatingText="Email" maxHeight="27.0" maxWidth="-Infinity" minHeight="27.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="178.0" VBox.vgrow="SOMETIMES">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <padding>
-                  <Insets bottom="1.0" left="2.0" right="1.0" top="1.0" />
-               </padding>
-            </MFXTextField>
-            <MFXPasswordField fx:id="passwordField" alignment="TOP_LEFT" floatMode="BORDER" floatingText="Password" maxHeight="27.0" maxWidth="-Infinity" minHeight="27.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="178.0" VBox.vgrow="SOMETIMES">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <padding>
-                  <Insets bottom="1.0" left="2.0" right="1.0" top="1.0" />
-               </padding>
-            </MFXPasswordField>
-            <MFXButton alignment="CENTER" contentDisplay="CENTER" nodeOrientation="LEFT_TO_RIGHT" onAction="#onHelloButtonClick" VBox.vgrow="SOMETIMES" />
-         </children>
-      </VBox>
-   </children>
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.desktop.controllers.AuthController">
+    <children>
+        <HBox alignment="BOTTOM_LEFT" nodeOrientation="RIGHT_TO_LEFT" onMousePressed="#movingWindow" prefHeight="24.0" prefWidth="600.0" style="-fx-background-color: #8D00FC; -fx-border-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <MFXFontIcon description="mfx-x" size="25.0" wrappingWidth="10.0">
+                    <HBox.margin>
+                        <Insets left="15.0" right="20.0" />
+                    </HBox.margin>
+                </MFXFontIcon>
+                <MFXFontIcon description="mfx-expand" layoutX="10.0" layoutY="31.0" size="19.0" wrappingWidth="12.0">
+                    <HBox.margin>
+                        <Insets right="15.0" />
+                    </HBox.margin>
+                </MFXFontIcon>
+                <MFXFontIcon description="mfx-minus" layoutX="20.0" layoutY="31.0" size="25.0" tabSize="12" wrappingWidth="10.0" />
+                <HBox fx:id="windowsBar" HBox.hgrow="ALWAYS" />
+            </children>
+        </HBox>
+        <VBox alignment="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="372.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0">
+            <children>
+                <MFXTextField fx:id="loginField" alignment="TOP_LEFT" floatMode="BORDER" floatingText="Email" maxHeight="27.0" maxWidth="-Infinity" minHeight="27.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="178.0" VBox.vgrow="SOMETIMES">
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="1.0" left="2.0" right="1.0" top="1.0" />
+                    </padding>
+                </MFXTextField>
+                <MFXPasswordField fx:id="passwordField" alignment="TOP_LEFT" floatMode="BORDER" floatingText="Password" maxHeight="27.0" maxWidth="-Infinity" minHeight="27.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="178.0" VBox.vgrow="SOMETIMES">
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="1.0" left="2.0" right="1.0" top="1.0" />
+                    </padding>
+                </MFXPasswordField>
+                <MFXButton alignment="CENTER" contentDisplay="CENTER" nodeOrientation="LEFT_TO_RIGHT" onAction="#onHelloButtonClick" rippleAnimateShadow="true" rippleColor="WHITE" textFill="#f21d1d" VBox.vgrow="SOMETIMES" />
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>

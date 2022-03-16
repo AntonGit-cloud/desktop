@@ -1,9 +1,11 @@
 package com.example.desktop.controllers;
 
 import io.github.palexdev.materialfx.controls.MFXPasswordField;
+import io.github.palexdev.materialfx.utils.ToggleButtonsUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -19,6 +21,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AuthController implements Initializable {
+    private final Stage stage;
+    private double xOffset;
+    private double yOffset;
+    private final ToggleGroup toggleGroup;
+
 
     @FXML
     private TextField loginField;
@@ -31,9 +38,6 @@ public class AuthController implements Initializable {
 
     @FXML
     private AnchorPane ap;
-
-    private static double xOffset = 0;
-    private static double yOffset = 0;
 
 
     @FXML
@@ -62,6 +66,14 @@ public class AuthController implements Initializable {
         System.out.println(responseString);
         client.close();
         //test.setText(responseString);
+    }
+
+    public AuthController(Stage stage) {
+        this.stage = stage;
+        stage.setResizable(true);
+        this.toggleGroup = new ToggleGroup();
+        ToggleButtonsUtil.addAlwaysOneSelectedSupport(toggleGroup);
+        //isMin = true;
     }
 
 
