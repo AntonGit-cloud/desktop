@@ -16,26 +16,33 @@
  * along with MaterialFX.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-* {
+package com.example.desktop.i18n;
 
-    /*light*/
-    -mfx-white: #FFFFFF;
-    -mfx-white-dark: #F9F6F7;
-    -mfx-beige: #FFE8D6;
-    -mfx-orange: #FF971D;
-
-    /*dark*/
-    -mfx-white-E: #EEEEEE;
-    -mfx-ginger: #D65A31;
-    -mfx-grey: #393E46;
-    -mfx-dark: #222831;
-
-    /*custom*/
-    -mfx-white: #EEEEEE;
-    -mfx-ginger: #D65A31;
-    -mfx-grey: #393E46;
-    -mfx-dark: #222831;
+import java.util.Locale;
 
 
-    -mfx-red: #ff0000;
+public enum Language {
+    ARABIC(Locale.forLanguageTag("ar")),
+    ENGLISH(Locale.ENGLISH),
+    FRENCH(Locale.FRENCH),
+    ITALIANO(Locale.ITALIAN),
+    RUSSIAN(new Locale("ru", "RU"));
+
+    private final Locale locale;
+
+    Language(Locale locale) {
+        this.locale = locale;
+    }
+
+    public static Language defaultLanguage() {
+        return RUSSIAN;
+    }
+
+    public static Locale defaultLocale() {
+        return RUSSIAN.getLocale();
+    }
+
+    public Locale getLocale() {
+        return locale;
+    }
 }

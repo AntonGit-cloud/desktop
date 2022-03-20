@@ -1,0 +1,89 @@
+@import '../../fonts/Fonts.css';
+@import '../MFXColors.css';
+@import "menu-light.css";
+
+/**************************************************
+ * Root
+**************************************************/
+.rootPane {
+    -fx-background-color: -mfx-white-dark;
+    -fx-border-color: -mfx-orange;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+/**************************************************
+ * Window Header
+**************************************************/
+.rootPane .close-icon {
+    -mfx-color: -mfx-red;
+    -fx-opacity: 0.5;
+}
+
+.rootPane .close-icon:hover {
+    -fx-opacity: 1.0;
+}
+
+.rootPane .minimize-icon {
+    -mfx-color: -mfx-dark;
+    -fx-opacity: 0.5;
+}
+
+.rootPane .minimize-icon:hover {
+    -fx-opacity: 1.0;
+}
+
+.rootPane .expand-icon {
+    -mfx-color: -mfx-dark;
+    -fx-opacity: 0.5;
+}
+
+.rootPane .expand-icon:hover {
+    -fx-opacity: 1.0;
+}
+
+.rootPane .expand-icon:hover {
+    -fx-opacity: 1.0;
+}
+
+.window-header {
+    -fx-background-color: -mfx-beige;
+    /* -fx-border-color: -mfx-orange; */
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+
+}
+
+
+/**************************************************
+ * Window Left bar
+**************************************************/
+
+
+.menubar, .navBar {
+    -fx-background-color: -mfx-beige;
+    -fx-background-radius: 10;
+    /*-fx-border-color: #1f1f1f;*/
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 0, 4, 5, 4);
+}
+
+/**************************************************
+ * Window Left bar icons
+**************************************************/
+.menubar .bars-icon {
+    -mfx-color: -mfx-dark;
+}
+
+.menubar .bars-icon:hover {
+    -mfx-color: -mfx-orange;
+}
+
+.menubar .home-icon {
+    -mfx-color: -mfx-dark;
+}
+
+.menubar .home-icon:hover {
+    -mfx-color: -mfx-orange;
+}
+

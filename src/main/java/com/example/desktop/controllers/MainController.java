@@ -1,9 +1,7 @@
 package com.example.desktop.controllers;
 
-import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.font.MFXFontIcon;
 import io.github.palexdev.materialfx.utils.AnimationUtils;
-import io.github.palexdev.materialfx.utils.ToggleButtonsUtil;
 import io.github.palexdev.materialfx.utils.others.loader.MFXLoader;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -12,7 +10,6 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -21,24 +18,28 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static com.example.desktop.DesktopApplication.root;
+import static com.example.desktop.MFXApplicationResourcesLoader.loadFxml;
+import static com.example.desktop.MFXApplicationResourcesLoader.loadURL;
+
 public class MainController implements Initializable {
 
-    private final Stage stage;
+    private static Stage stage;
     private double xOffset;
     private double yOffset;
-    private final ToggleGroup toggleGroup;
 
     private boolean isNavShown = false;
-    private MFXButton opNavButton;
+    private int menu = 0;
+    private int subjectCount = 0;
     private ParallelTransition openNav;
     private ParallelTransition closeNav;
 
-    private double x;
-    private double y;
+    public static boolean isLightMode = true;
 
     private boolean isMin;
 
@@ -55,10 +56,19 @@ public class MainController implements Initializable {
     private MFXFontIcon minimizeIcon;
 
     @FXML
-    private MFXFontIcon alwaysOnTopIcon;
+    private MFXFontIcon expandIcon;
 
     @FXML
     private MFXFontIcon userMani;
+
+    @FXML
+    private MFXFontIcon home;
+
+    @FXML
+    private MFXFontIcon subject;
+
+    @FXML
+    private MFXFontIcon video;
 
     @FXML
     private StackPane navBar;
@@ -66,12 +76,8 @@ public class MainController implements Initializable {
     @FXML
     private StackPane contentPane;
 
-
     public MainController(Stage stage) {
         this.stage = stage;
-        stage.setResizable(true);
-        this.toggleGroup = new ToggleGroup();
-        ToggleButtonsUtil.addAlwaysOneSelectedSupport(toggleGroup);
         isMin = true;
     }
 
@@ -80,7 +86,7 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         closeIcon.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> Platform.exit());
         minimizeIcon.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> ((Stage) rootPane.getScene().getWindow()).setIconified(true));
-        alwaysOnTopIcon.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+        expandIcon.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             Window window = rootPane.getScene().getWindow();
             if (isMin) {
                 ((Stage) window).setMaximized(true);
@@ -90,8 +96,6 @@ public class MainController implements Initializable {
                 isMin = true;
             }
         });
-
-        userMani.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> animate());
 
         /*alwaysOnTopIcon.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             boolean newVal = !stage.isAlwaysOnTop();
@@ -112,13 +116,14 @@ public class MainController implements Initializable {
         initializeLoader();
 
         navBar.setVisible(false);
-        initAnimations();
 
+        initAnimations(navBar);
     }
 
 
     private void initializeLoader() {
         MFXLoader loader = new MFXLoader();
+        //loader.addView(MFXLoaderBean.of("BUTTONS", loadURL("views/menu-view.fxml")).setBeanToNodeMapper(() -> createToggle("mfx-circle-dot", "Buttons")).setDefaultRoot(true).get());
         loader.setOnLoadedAction(beans -> {
             List<ToggleButton> nodes = beans.stream()
                     .map(bean -> {
@@ -131,25 +136,28 @@ public class MainController implements Initializable {
                         return toggle;
                     })
                     .toList();
-            //navBar.getChildren().setAll(nodes);
+            navBar.getChildren().setAll(nodes);
         });
         loader.start();
     }
 
 
-    private void initAnimations() {
+    private void initAnimations(StackPane stackPane) {
         openNav = (ParallelTransition) AnimationUtils.ParallelBuilder.build()
-                .show(100, navBar)
-                .add(new KeyFrame(Duration.millis(300), new KeyValue(navBar.translateXProperty(), 2)))
-                //.add(new KeyFrame(Duration.millis(200), new KeyValue(opNavButton.rotateProperty(), -180)))
-                .setOnFinished(event -> isNavShown = true)
-                .getAnimation();
+                .show(100, stackPane)
+                .add(new KeyFrame(Duration.millis(300), new KeyValue(navBar.translateXProperty(), 5)))
+                .setOnFinished(event -> {
+                    isNavShown = true;
+                }).getAnimation();
 
         closeNav = (ParallelTransition) AnimationUtils.ParallelBuilder.build()
-                .hide(500, navBar)
+                .hide(500, stackPane)
                 .add(new KeyFrame(Duration.millis(300), new KeyValue(navBar.translateXProperty(), -240)))
-                //.add(new KeyFrame(Duration.millis(200), new KeyValue(opNavButton.rotateProperty(), 0)))
-                .setOnFinished(event -> isNavShown = false)
+                .setOnFinished(event -> {
+                    isNavShown = false;
+                    menu = 0;
+                    subjectCount = 0;
+                })
                 .getAnimation();
     }
 
@@ -166,4 +174,59 @@ public class MainController implements Initializable {
         return (Stage) rootPane.getScene().getWindow();
     }
 
+    public void manu(MouseEvent actionEvent) throws IOException {
+        if (!isNavShown) {
+            navBar.setVisible(true);
+            openNav.play();
+            loadFxml("views/menu-view.fxml", navBar);
+            menu += 2;
+        } else {
+            if (menu >= 1) {
+                menu = 0;
+                closeNav.play();
+            }
+            menu++;
+            subjectCount = 0;
+            loadFxml("views/menu-view.fxml", navBar);
+        }
+    }
+
+    public void subject(MouseEvent actionEvent) throws IOException {
+
+        if (!isNavShown) {
+            navBar.setVisible(true);
+            openNav.play();
+            loadFxml("views/subject-menu-view.fxml", navBar);
+            subjectCount += 2;
+        } else {
+            if (subjectCount == 1) {
+                subjectCount = 0;
+                closeNav.play();
+            }
+            subjectCount++;
+            menu = 0;
+            loadFxml("views/subject-menu-view.fxml", navBar);
+        }
+    }
+
+    public void home(MouseEvent actionEvent) throws IOException {
+        if (isNavShown) {
+            closeNav.play();
+        }
+        loadFxml("views/home-view.fxml", contentPane);
+    }
+
+    public static void setLightMode() {
+        isLightMode = true;
+
+        root.getStylesheets().remove(loadURL("css/dark/main-dark.css").toExternalForm());
+        root.getStylesheets().add(loadURL("css/light/main-light.css").toExternalForm());
+
+    }
+
+    public static void setDarkMode() {
+        isLightMode = false;
+        root.getStylesheets().remove(loadURL("css/light/main-light.css").toExternalForm());
+        root.getStylesheets().add(loadURL("css/dark/main-dark.css").toExternalForm());
+    }
 }

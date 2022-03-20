@@ -18,6 +18,11 @@
 
 package com.example.desktop;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.layout.StackPane;
+
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
@@ -42,4 +47,11 @@ public class MFXApplicationResourcesLoader {
         return MFXApplicationResourcesLoader.class.getResourceAsStream(name);
     }
 
+    public static void loadFxml(String path, StackPane pane) throws IOException {
+        URL resource = loadURL(path);
+        Parent fxml = FXMLLoader.load(resource);
+        pane.getChildren().removeAll();
+        pane.getChildren().setAll(fxml);
+
+    }
 }

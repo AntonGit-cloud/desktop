@@ -3,7 +3,7 @@ package com.example.desktop.config;
 import java.util.prefs.Preferences;
 
 public class SavePreference {
-    private Preferences prefs;
+    private static Preferences prefs;
 
     public void setPreference() {
         // This will define a node in which the preferences can be stored
@@ -26,7 +26,7 @@ public class SavePreference {
         prefs.putInt(ID3, 45);*/
 
         // Delete the preference settings for the first value
-       // prefs.remove(ID1);
+        // prefs.remove(ID1);
 
     }
 
