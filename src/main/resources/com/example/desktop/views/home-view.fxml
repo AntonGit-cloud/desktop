@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXPaginatedTableView?>
+<?import io.github.palexdev.materialfx.controls.MFXTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+            stylesheets="@../css/light/main-light.css" xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.desktop.controllers.HomeController">
+    <children>
+        <HBox layoutX="25.0" layoutY="20.0" spacing="10.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="4.0"
+              AnchorPane.topAnchor="15.0">
+            <children>
+                <AnchorPane prefWidth="400.0" styleClass="background-panel">
+                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="header-label" text="Label"
+                           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                    <MFXTableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                  prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                  AnchorPane.topAnchor="20.0"/>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                </AnchorPane>
+                <AnchorPane prefWidth="400.0" styleClass="background-panel">
+                    <children>
+                        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="header-label"
+                               text="Label" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0"/>
+                        <MFXTableView fx:id="table1" maxHeight="1.7976931348623157E308"
+                                      maxWidth="1.7976931348623157E308" prefWidth="400.0" AnchorPane.leftAnchor="0.0"
+                                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0"/>
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                </AnchorPane>
+                <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" styleClass="background-panel">
+                    <children>
+                        <MFXPaginatedTableView fx:id="paginated" prefWidth="800.0" AnchorPane.bottomAnchor="5.0"
+                                               AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+                                               AnchorPane.topAnchor="5.0"/>
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </AnchorPane>
+            </children>
+        </HBox>
+
+
+    </children>
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+    </padding>
+</AnchorPane>

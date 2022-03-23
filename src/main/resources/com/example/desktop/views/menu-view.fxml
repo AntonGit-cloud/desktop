@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXToggleButton?>
+<?import io.github.palexdev.materialfx.font.MFXFontIcon?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<AnchorPane prefHeight="239.0" prefWidth="171.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.desktop.controllers.MenuController">
+    <children>
+        <VBox alignment="CENTER" layoutX="14.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+              AnchorPane.topAnchor="5.0">
+            <children>
+                <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/avatar.png"/>
+                    </image>
+                    <viewport>
+                        <Rectangle2D/>
+                    </viewport>
+                </ImageView>
+                <Label text="Label"/>
+                <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" styleClass="profileBtn">
+                    <children>
+                        <Label text="Label">
+                            <graphic>
+                                <MFXFontIcon description="mfx-user" tabSize="10"/>
+                            </graphic>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" styleClass="profileBtn">
+                    <children>
+                        <Label text="Label">
+                            <graphic>
+                                <MFXFontIcon description="mfx-user" tabSize="10"/>
+                            </graphic>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" styleClass="profileBtn">
+                    <children>
+                        <Label text="Label">
+                            <graphic>
+                                <MFXFontIcon description="mfx-user" tabSize="10"/>
+                            </graphic>
+                        </Label>
+                        <MFXToggleButton id="customToggleButton" fx:id="themeMode" contentDisposition="CENTER"
+                                         length="37.0" onMouseClicked="#changeMode"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.font.MFXFontIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="rootPane" stylesheets="@../css/light/main-light.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.desktop.controllers.MainController">
+    <HBox fx:id="windowHeader" alignment="CENTER_RIGHT" layoutY="6.0" prefHeight="40.0" prefWidth="1281.0" spacing="10.0" styleClass="window-header" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+            <children>
+                <Label text="%main.widows.bar.titel" HBox.hgrow="ALWAYS" />
+            </children>
+        </HBox>
+        <MFXFontIcon fx:id="minimizeIcon" description="mfx-minus" size="20.0" styleClass="minimize-icon" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+                <Insets top="10.0" />
+            </HBox.margin>
+        </MFXFontIcon>
+        <MFXFontIcon fx:id="expandIcon" description="mfx-expand" size="20.0" styleClass="expand-icon" />
+        <MFXFontIcon fx:id="closeIcon" description="mfx-x" size="25.0" styleClass="close-icon" />
+        <padding>
+            <Insets right="10.0" />
+        </padding>
+    </HBox>
+    <StackPane fx:id="contentPane" layoutX="63.0" layoutY="50.0" styleClass="navBar" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="49.0">
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </padding>
+    </StackPane>
+    <BorderPane layoutX="2.0" layoutY="42.0" prefHeight="358.0" prefWidth="51.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="41.0">
+        <center>
+            <VBox alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="394.0" prefWidth="41.0" spacing="15.0" styleClass="menubar" BorderPane.alignment="CENTER">
+                <MFXFontIcon fx:id="userMani" description="mfx-bars" onMouseClicked="#manu" size="25.0" stroke="WHITE" styleClass="bars-icon">
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </MFXFontIcon>
+                <MFXFontIcon fx:id="home" description="mfx-home" onMouseClicked="#home" size="25.0" styleClass="home-icon">
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </MFXFontIcon>
+                <MFXFontIcon fx:id="subject" description="mfx-bars" onMouseClicked="#subject" size="25.0">
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </MFXFontIcon>
+                <MFXFontIcon fx:id="video" description="mfx-users" size="25.0">
+                </MFXFontIcon>
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="15.0" />
+                </padding>
+                <opaqueInsets>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </opaqueInsets>
+            </VBox>
+        </center>
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </padding>
+    </BorderPane>
+    <StackPane id="navBar" fx:id="navBar" layoutX="42.0" layoutY="48.0" styleClass="navBar" translateX="-251.0" visible="false" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="48.0" StackPane.alignment="CENTER_LEFT">
+        <StackPane.margin>
+            <Insets bottom="15.0" left="15.0" top="15.0" />
+        </StackPane.margin>
+        <children>
+            <AnchorPane prefWidth="200.0" />
+        </children>
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </padding>
+    </StackPane>
+</AnchorPane>

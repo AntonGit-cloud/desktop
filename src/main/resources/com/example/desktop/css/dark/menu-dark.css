@@ -1,0 +1,17 @@
+
+.profileBtn {
+    -fx-background-color: -mfx-dark;
+    -fx-background-radius: 10;
+    /*-fx-border-color: #1f1f1f;
+
+     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 0, 4, 5, 4);
+     -mfx-beige;
+     */
+    -fx-border-radius: 10;
+
+}
+
+.profileBtn:hover {
+    -mfx-color: -mfx-grey;
+    -fx-background-color: -mfx-grey;
+}
