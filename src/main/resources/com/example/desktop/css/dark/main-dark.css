@@ -1,6 +1,7 @@
 @import '../../fonts/Fonts.css';
 @import '../MFXColors.css';
 @import "menu-dark.css";
+@import "subject-dark.css";
 
 * {
     -fx-text-fill: -mfx-white-E;
@@ -92,3 +93,12 @@
 .menubar .home-icon:hover {
     -mfx-color: -mfx-ginger;
 }
+
+.background-panel {
+    -fx-background-color: -mfx-dark;
+    -fx-background-radius: 10;
+    /*-fx-border-color: #1f1f1f;*/
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 0, 4, 5, 4);
+}
+

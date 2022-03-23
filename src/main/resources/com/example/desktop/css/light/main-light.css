@@ -1,6 +1,7 @@
 @import '../../fonts/Fonts.css';
 @import '../MFXColors.css';
 @import "menu-light.css";
+@import "subject-light.css";
 
 /**************************************************
  * Root
@@ -42,10 +43,6 @@
     -fx-opacity: 1.0;
 }
 
-.rootPane .expand-icon:hover {
-    -fx-opacity: 1.0;
-}
-
 .window-header {
     -fx-background-color: -mfx-beige;
     /* -fx-border-color: -mfx-orange; */
@@ -75,7 +72,8 @@
     -mfx-color: -mfx-dark;
 }
 
-.menubar .bars-icon:hover {
+.menubar .bars-icon:hover,
+.menubar .bars-icon:selected {
     -mfx-color: -mfx-orange;
 }
 
@@ -83,7 +81,16 @@
     -mfx-color: -mfx-dark;
 }
 
-.menubar .home-icon:hover {
+.menubar .home-icon:hover,
+.menubar .home-icon:selected {
     -mfx-color: -mfx-orange;
 }
 
+
+.background-panel {
+    -fx-background-color: -mfx-white;
+    -fx-background-radius: 10;
+    /*-fx-border-color: #1f1f1f;*/
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 0, 4, 5, 4);
+}

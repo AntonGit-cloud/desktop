@@ -1,6 +1,7 @@
 module com.example.desktop {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.graphics;
     requires MaterialFX;
     requires org.apache.httpcomponents.httpclient;
     requires org.apache.httpcomponents.httpcore;

@@ -18,6 +18,8 @@
 
 package com.example.desktop;
 
+import com.example.desktop.i18n.I18N;
+import com.example.desktop.i18n.Language;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
@@ -25,6 +27,7 @@ import javafx.scene.layout.StackPane;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Utility class which manages the access to this project's assets.
@@ -49,7 +52,8 @@ public class MFXApplicationResourcesLoader {
 
     public static void loadFxml(String path, StackPane pane) throws IOException {
         URL resource = loadURL(path);
-        Parent fxml = FXMLLoader.load(resource);
+        ResourceBundle bundle = I18N.getBundle(Language.defaultLocale());
+        Parent fxml = FXMLLoader.load(resource, bundle);
         pane.getChildren().removeAll();
         pane.getChildren().setAll(fxml);
 

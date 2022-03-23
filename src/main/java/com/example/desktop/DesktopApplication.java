@@ -25,6 +25,8 @@ public class DesktopApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        // CSSFX.start();
+
         ResourceBundle bundle1 = I18N.getBundle(Language.defaultLocale());
         FXMLLoader loader = new FXMLLoader(loadURL("views/main-view.fxml"), bundle1);
         loader.setControllerFactory(c -> new MainController(stage));
